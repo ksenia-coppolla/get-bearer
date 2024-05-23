@@ -1,0 +1,23 @@
+{
+  "name": "bearer",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "npm run start-frontend & npm run start-backend",
+    "start-frontend": "cd frontend && live-server",
+    "start-backend": "cd backend && node ./server-listen.js",
+    "test": " NODE_ENV=test jest --testTimeout=10000 --detectOpenHandles"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "jsonwebtoken": "^9.0.2"
+  },
+  "devDependencies": {
+    "dotenv": "^16.4.5",
+    "jest": "^29.7.0",
+    "live-server": "^1.2.2",
+    "supertest": "^7.0.0"
+  }
+}
