@@ -17,7 +17,7 @@ document.addEventListener("DOMContentLoaded", () => {
     ).value;
 
     try {
-      const response = await fetch("http://localhost:3001/api/generate-token", {
+      const response = await fetch(`/api/generate-token`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
