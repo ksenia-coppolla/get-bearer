@@ -9,6 +9,12 @@
       "use": "@vercel/static"
     }
   ],
+  "rewrites": [
+    {
+      "source": "/api/(.*)",
+      "destination": "/backend/api/generate-token.js"
+    }
+  ],
   "routes": [
     {
       "src": "/(.*)",
