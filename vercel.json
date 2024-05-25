@@ -2,17 +2,12 @@
   "version": 2,
   "builds": [
     { "src": "frontend/index.html", "use": "@vercel/static" },
-    { "src": "backend/server-listen.js", "use": "@vercel/node" }
+    { "src": "backend/api/generate-token.js", "use": "@vercel/node" }
   ],
-  "functions": {
-    "api": {
-      "handler": "backend/server-listen.js"
-    }
-  },
   "routes": [
     {
       "src": "/api/(.*)",
-      "dest": "/backend/server-listen.js"
+      "dest": "/backend/api/$1"
     },
     {
       "src": "/(.*)",
