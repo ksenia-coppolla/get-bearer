@@ -4,6 +4,11 @@
     { "src": "frontend/index.html", "use": "@vercel/static" },
     { "src": "backend/server-listen.js", "use": "@vercel/node" }
   ],
+  "functions": {
+    "api": {
+      "handler": "backend/server-listen.js"
+    }
+  },
   "routes": [
     {
       "src": "/api/(.*)",
