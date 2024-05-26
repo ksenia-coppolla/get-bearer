@@ -130,6 +130,15 @@ input {
   margin-top: var(--spacing-large);
 }
 
+.result-wrapper {
+  visibility: visible;
+  position: relative;
+}
+
+.result-wrapper.is-hidden {
+  visibility: hidden;
+}
+
 .result {
   border-radius: 6px;
   padding: var(--spacing-large);
@@ -143,6 +152,31 @@ input {
 .result.success {
   background-color: rgb(239, 250, 245);
   color: rgb(22, 70, 48);
+}
+
+.copy-button {
+  position: absolute;
+  right: 3px;
+  top: 3px;
+  padding: 0;
+  display: flex;
+  background-color: transparent;
+  border: 0;
+  cursor: pointer;
+}
+
+.copy-button:focus-within {
+  box-shadow: var(--box-shadow-focus);
+  outline: none;
+  border-radius: 6px;
+}
+
+.copy-button svg path {
+  stroke: var(--color-success-text);
+}
+
+.result.error + .copy-button {
+  display: none;
 }
 
 .multiline {
@@ -186,7 +220,7 @@ input {
   background-color: #333;
   color: #fff;
   text-align: center;
-  border-radius: 5px;
+  border-radius: 6px;
   padding: var(--spacing-small);
   position: absolute;
   z-index: 1;
