@@ -41,8 +41,8 @@ document.addEventListener("DOMContentLoaded", () => {
       }
 
       const data = await response.json();
-      currentBearer = data.token;
-      const result = `<span>Bearer </span><span class="multiline">${currentBearer}</span>`;
+      currentBearer = `Bearer ${data.token}`;
+      const result = `<span class="multiline">${currentBearer}</span>`;
 
       resultDiv.innerHTML = result;
       resultDiv.classList.add("success");
