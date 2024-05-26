@@ -7,6 +7,8 @@ const secrets = {
   production: process.env.SECRET_PRODUCTION || 789101112,
 };
 
+const lettersAndNumbersRegex = /^[a-zA-Z0-9]+$/;
+
 function generateJWT(organization_id, secret) {
   const payload = { organization_id };
   return jwt.sign(payload, secret, { algorithm: "HS256" });
@@ -27,6 +29,16 @@ function handleGenerateToken(req, res) {
       const data = JSON.parse(buffer);
       const { organization_id, environment } = data;
 
+      if (!lettersAndNumbersRegex.test(organization_id)) {
+        res.writeHead(400, { "Content-Type": "application/json" });
+        res.end(
+          JSON.stringify({
+            message: "Organization ID must contain only numbers and letters.",
+          })
+        );
+        return;
+      }
+
       if (!organization_id || organization_id.length !== 24) {
         res.writeHead(400, { "Content-Type": "application/json" });
         res.end(
@@ -40,7 +52,7 @@ function handleGenerateToken(req, res) {
       if (!environment || !secrets[environment]) {
         res.writeHead(400, { "Content-Type": "application/json" });
         res.end(
-          JSON.stringify({ message: `Invalid environment. ${environment}` })
+          JSON.stringify({ message: `Invalid environment: ${environment}` })
         );
         return;
       }

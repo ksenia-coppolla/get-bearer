@@ -80,7 +80,9 @@ describe("handleGenerateToken", () => {
       "Content-Type": "application/json",
     });
     expect(res.end).toHaveBeenCalledWith(
-      JSON.stringify({ message: "Invalid environment." })
+      JSON.stringify({
+        message: `Invalid environment: ${INCORRECT_ENV}`,
+      })
     );
   });
 
@@ -104,7 +106,7 @@ describe("handleGenerateToken", () => {
       "Content-Type": "application/json",
     });
     expect(res.end).toHaveBeenCalledWith(
-      JSON.stringify({ message: "Invalid environment." })
+      JSON.stringify({ message: "Invalid environment: undefined" })
     );
   });
 
