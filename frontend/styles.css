@@ -39,8 +39,12 @@ body {
 }
 
 input {
-  font-family: "Inter", sans-serif;
+  font-family: inherit;
   font-size: var(--text-size);
+}
+
+button {
+  font-family: inherit;
 }
 
 .app {
