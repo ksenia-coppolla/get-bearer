@@ -3,6 +3,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const resultDiv = document.getElementById("result");
   const submitButton = document.getElementById("submit");
   const tooltipMessage = document.getElementById("tooltip-message");
+  const apiUrl = document.documentElement.dataset.apiUrl || "";
 
   form.addEventListener("submit", async (event) => {
     event.preventDefault();
@@ -17,7 +18,7 @@ document.addEventListener("DOMContentLoaded", () => {
     ).value;
 
     try {
-      const response = await fetch(`/api/generate-token`, {
+      const response = await fetch(`${apiUrl}/api/generate-token`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

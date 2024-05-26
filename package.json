@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "npm run start-frontend & npm run start-backend",
-    "start-frontend": "cd frontend && live-server",
+    "start-frontend": "./start-frontend.sh",
     "start-backend": "cd backend && node ./server-listen.js",
     "test": " NODE_ENV=test jest --testTimeout=10000 --detectOpenHandles"
   },
