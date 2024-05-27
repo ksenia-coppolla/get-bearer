@@ -3,8 +3,8 @@ const { StringDecoder } = require("string_decoder");
 const jwt = require("jsonwebtoken");
 
 const secrets = {
-  staging: process.env.SECRET_STAGING || 123456,
-  production: process.env.SECRET_PRODUCTION || 789101112,
+  staging: process.env.SECRET_STAGING || "123456",
+  production: process.env.SECRET_PRODUCTION || "789101112",
 };
 
 const lettersAndNumbersRegex = /^[a-zA-Z0-9]+$/;
